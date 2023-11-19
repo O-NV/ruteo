@@ -14,7 +14,7 @@ INSERT INTO metadata_atracciones (nodo_nombre, zona, estatura_minima, es_juego_p
 ('Kamikaze', 'Adrenalina', 140, false, false, null, null, false, null),
 ('Crazy Dance', 'Adrenalina', 120, false, false, null, null, false, null),
 ('Moby Dick', 'Adrenalina', 120, false, false, null, null, false, null),
-('Castillo Encantado', 'Adrenalina', 140, false, false, null, null, false, null),
+('Castillo Encantado', 'Adrenalina', 140, true, false, null, null, false, null),
 ('Disko', 'Adrenalina', 120, false, false, null, null, false, null),
 ('Top Spin', 'Adrenalina', 140, false, false, null, null, false, null),
 ('Monga', 'Adrenalina', 120, false, false, null, null, false, null),
