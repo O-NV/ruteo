@@ -164,7 +164,7 @@ WITH ClosestPoints AS (
     FROM
         aristasbuenas a1, aristasbuenas a2
     WHERE
-        a1.id = 9 AND a2.id IN (1, 12, 15, 4, 5)
+        a1.id = 9 AND a2.id IN (1, 12, 4, 5)
 )
 INSERT INTO aristasbuenas (wkb_geometry)
 SELECT 
@@ -273,14 +273,14 @@ COMMIT;
 
 BEGIN;
 -- Crear una nueva arista para cada nodo, conectándolo con la arista más cercana
-INSERT INTO aristas (wkb_geometry)
+INSERT INTO aristasbuenas (wkb_geometry)
 SELECT 
     ST_Multi(ST_ShortestLine(n.geom, a.wkb_geometry)) AS new_geom
 FROM 
     nodos n,
     LATERAL (
         SELECT a.wkb_geometry
-        FROM aristas a
+        FROM aristasbuenas a
         ORDER BY ST_Distance(a.wkb_geometry, n.geom)
         LIMIT 1
     ) AS a;
