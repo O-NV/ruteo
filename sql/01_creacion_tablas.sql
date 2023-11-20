@@ -22,15 +22,6 @@ CREATE TABLE IF NOT EXISTS metadata_atracciones (
     CONSTRAINT fk_nodo_nombre FOREIGN KEY (nodo_nombre) REFERENCES nodos(nombre)
 );
 
--- Crear tabla para las aristas
-CREATE TABLE IF NOT EXISTS aristas (
-    id SERIAL PRIMARY KEY,
-    nodo_inicio_id INT REFERENCES nodos(id),
-    nodo_fin_id INT REFERENCES nodos(id),
-    -- distancia DOUBLE PRECISION NOT NULL, -- en metros
-    -- tiempo_estimado INT -- en segundos
-);
-
 -- Agregar la extensión PostGIS para geolocalización
 CREATE EXTENSION IF NOT EXISTS postgis;
 

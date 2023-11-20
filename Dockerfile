@@ -1,8 +1,10 @@
-FROM postgis/postgis
+FROM postgis/postgis:latest
 
-# Install pgRouting package
-RUN apt-get update \
-    && apt-get install -y \
-        postgresql-13-pgrouting
+# Instalar dependencias y pgRouting
+RUN apt-get update && apt-get install -y \
+    postgresql-16-pgrouting
 
-# Perform any additional steps such as configuring the database
+
+# Limpiar archivos innecesarios
+RUN apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
