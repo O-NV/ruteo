@@ -1,11 +1,11 @@
--- Insertar metadata para atracciones de la Zona Adrenalina
+-- Insertar metadata para atracciones de la Zona Adrenalina 
 INSERT INTO metadata_atracciones (nodo_nombre, zona, estatura_minima, es_juego_pago, es_juego_acuatico, tiempo_espera, juegos_horarios, juegos_temporada, popularidad) VALUES
 ('Black Hole', 'Adrenalina', 100, false, true, null, null, false, null),
 ('Xtreme Fall', 'Adrenalina', 130, false, false, null, null, false, null),
 ('Spider', 'Adrenalina', 140, false, false, null, null, false, null),
 ('Air Race', 'Adrenalina', 120, false, false, null, null, false, null),
 ('Volare', 'Adrenalina', 120, false, false, null, null, false, null),
-('Tsunami', 'Adrenalina', 120, false, false, null, null, false, null),
+('Tsunami', 'Adrenalina', 120, false, true, null, null, false, null),
 ('Boomerang', 'Adrenalina', 120, false, false, null, null, false, null),
 ('Rapid River', 'Adrenalina', 90, false, true, null, null, false, null),
 ('Barco Pirata', 'Adrenalina', 100, false, false, null, null, false, null),
