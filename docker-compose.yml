@@ -9,6 +9,6 @@ services:
       POSTGRES_PASSWORD: 123
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
-
+      - ./data:/data
     ports:
       - "5433:5433"
