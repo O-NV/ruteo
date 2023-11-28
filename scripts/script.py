@@ -1,7 +1,7 @@
 import numpy as np
 import json
 
-with open('tiempos_espera_atraccion.json', 'r') as f:
+with open('/data/tiempos_espera_atraccion.json', 'r') as f:
     data = json.load(f)
 
 intervalos = np.zeros(shape=(84,46))
@@ -21,5 +21,5 @@ data1['tiempos_espera'][0] corresponde al tiempo de espera de cada atracción a 
 data1['tiempos_espera'][1] corresponde al tiempo de espera de cada atracción a las 12:05...
 """
 
-with open('tiempos_espera_intervalo.json', 'w') as f:
+with open('/data/tiempos_espera_intervalo.json', 'w') as f:
     json.dump(data1, f, indent=4)

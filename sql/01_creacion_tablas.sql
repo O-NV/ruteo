@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS metadata_atracciones (
     estatura_maxima INT, -- en cm
     es_juego_pago BOOLEAN,
     es_juego_acuatico BOOLEAN,
-    tiempo_espera INT, -- en segundos
+    tiempo_espera VARCHAR(3000),
     juegos_horarios VARCHAR(255), -- JSON con horarios de juegos
     juegos_temporada BOOLEAN,
     popularidad INT,

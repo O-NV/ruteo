@@ -146,7 +146,7 @@ def guardar_json(json_data):
     Returns:
         None
     """
-    with open("tiempos_espera_atraccion.json", "w") as json_file:
+    with open("/data/tiempos_espera_atraccion.json", "w") as json_file:
         json.dump(json_data, json_file, indent=4)
 
 json_tiempos_espera = crear_json_tiempos_espera()
