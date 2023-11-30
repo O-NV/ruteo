@@ -16,5 +16,4 @@ RUN pip3 install -r requirements.txt
 
 RUN chmod +x /ejecutar_scripts.sh
 
-# RUN echo "@reboot /ejecutar_scripts.sh" | crontab -
 RUN echo "57 3 * * * ejecutar_scripts.sh" | crontab -

@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS clima (
     temperatura_celsius FLOAT
 );
 
+ALTER TABLE clima ADD UNIQUE (fecha_observacion);
 -- Agregar la extensión PostGIS para geolocalización
 CREATE EXTENSION IF NOT EXISTS postgis;
 
