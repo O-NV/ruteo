@@ -3,6 +3,7 @@ import json
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
+frio = 0
 
 atracciones_tiers = {
     "Raptor": "T1",
@@ -53,6 +54,15 @@ atracciones_tiers = {
     "Monga": "TH"
 }
 
+atracciones_agua = [
+    "Black Hole",
+    "Tsunami", 
+    "Rapid River", 
+    "The Pirate Revenge", 
+    "Botes Chocadores", 
+    "Mini Splash"
+]
+
 popularity_tiers = {
     "T1": 3,
     "T2": 2,
@@ -85,17 +95,17 @@ def generar_tiempos_espera(popularity_factor):
         numpy.ndarray: An array of rounded values representing the expected waiting times.
     """
     k = 1
-    if popularity_factor == 3:
+    if popularity_factor <= 3 and popularity_factor > 2:
         k = popularity_factor**2
-    elif popularity_factor == 2:
+    elif popularity_factor <= 2 and popularity_factor > 1.5:
         k = popularity_factor*5
-    elif popularity_factor == 1.5:
+    elif popularity_factor <= 1.5 and popularity_factor > 1:
         k = 20
-    elif popularity_factor == 1:
+    elif popularity_factor <= 1 and popularity_factor > 0.8:
         k = 30
-    elif popularity_factor == 0.8:
+    elif popularity_factor <= 0.8 and popularity_factor > 0.5:
         k = 40
-    elif popularity_factor == 0.5:
+    elif popularity_factor <= 0.5 and popularity_factor > 0:
         k = 50
     else:
         k = 10
@@ -131,7 +141,10 @@ def crear_json_tiempos_espera():
     """
     tiempos_espera = {}
     for atraccion, tier in atracciones_tiers.items():
-        popularity_factor = popularity_tiers.get(tier, 1)
+        if frio and atraccion in atracciones_agua:
+            popularity_factor = popularity_tiers.get(tier, 1) / 2
+        else:
+            popularity_factor = popularity_tiers.get(tier, 1)
         tiempos_espera[atraccion] = generar_tiempos_espera(popularity_factor).tolist()
 
     return {"tiempos_espera": tiempos_espera}
@@ -146,7 +159,7 @@ def guardar_json(json_data):
     Returns:
         None
     """
-    with open("/data/tiempos_espera_atraccion.json", "w") as json_file:
+    with open("./data/tiempos_espera_atraccion.json", "w") as json_file:
         json.dump(json_data, json_file, indent=4)
 
 json_tiempos_espera = crear_json_tiempos_espera()
@@ -165,9 +178,9 @@ if json_tiempos_espera:
     ]
     guardar_json(json_tiempos_espera)
     print("JSON generado y guardado correctamente.")
-    # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Raptor'])
-    # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Xtreme Fall'])
-    # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Disko'])
+    # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Black Hole'])
+    # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Tsunami'])
+    # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['The Pirate Revenge'])
     # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Wild Mouse'])
     # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['El Faro'])
     # ax.plot(intervalos, json_tiempos_espera['tiempos_espera']['Tiro al Payaso'])
