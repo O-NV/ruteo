@@ -17,4 +17,6 @@ RUN pip3 install -r requirements.txt
 RUN chmod +x /ejecutar_scripts_tiempo_espera.sh
 RUN chmod +x /ejecutar_scripts_clima.sh
 
-RUN echo "57 3 * * * /ejecutar_scripts_tiempo_espera.sh\n*/5 * * * * /ejecutar_scripts_clima.sh" | crontab -
+COPY my_cron_jobs /etc/cron.d/my_cron_jobs
+RUN chmod 0644 /etc/cron.d/my_cron_jobs
+RUN crontab /etc/cron.d/my_cron_jobs

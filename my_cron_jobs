@@ -1,0 +1,2 @@
+0 0 * * * /ejecutar_scripts_tiempo_espera.sh
+*/5 * * * * /ejecutar_scripts_clima.sh
