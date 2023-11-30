@@ -1,4 +1,5 @@
 import requests
+import json
 
 # Tu clave de API
 key = 'Ve2gNUFDvULMtDacoapysLI7MeT5MLUr'
@@ -27,7 +28,10 @@ city_data = get_city('santiago')
 if city_data:
     weather_data = get_weather(city_data['Key'])
     if weather_data:
-        print(weather_data)
+        # Guardar los datos del clima en un archivo .json
+        with open('./data/clima_actual.json', 'w') as json_file:
+            json.dump(weather_data, json_file, indent=4)
+        print(f"Los datos del clima se han guardado en 'clima_actual.json'.")
     else:
         print("No se encontraron datos de clima para esta ciudad.")
 else:

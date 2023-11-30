@@ -22,6 +22,15 @@ CREATE TABLE IF NOT EXISTS metadata_atracciones (
     CONSTRAINT fk_nodo_nombre FOREIGN KEY (nodo_nombre) REFERENCES nodos(nombre)
 );
 
+-- Crear tabla para el clima
+CREATE TABLE IF NOT EXISTS clima (
+    id SERIAL PRIMARY KEY,
+    fecha_observacion TIMESTAMP NOT NULL,
+    hay_precipitacion BOOLEAN,
+    es_de_dia BOOLEAN,
+    temperatura_celsius FLOAT
+);
+
 -- Agregar la extensión PostGIS para geolocalización
 CREATE EXTENSION IF NOT EXISTS postgis;
 

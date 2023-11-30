@@ -1,0 +1,23 @@
+{
+    "LocalObservationDateTime": "2023-11-29T22:35:00-03:00",
+    "EpochTime": 1701308100,
+    "WeatherText": "Clear",
+    "WeatherIcon": 33,
+    "HasPrecipitation": false,
+    "PrecipitationType": null,
+    "IsDayTime": false,
+    "Temperature": {
+        "Metric": {
+            "Value": 22.0,
+            "Unit": "C",
+            "UnitType": 17
+        },
+        "Imperial": {
+            "Value": 72.0,
+            "Unit": "F",
+            "UnitType": 18
+        }
+    },
+    "MobileLink": "http://www.accuweather.com/en/cl/santiago/60449/current-weather/60449?lang=en-us",
+    "Link": "http://www.accuweather.com/en/cl/santiago/60449/current-weather/60449?lang=en-us"
+}
