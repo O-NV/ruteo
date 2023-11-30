@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS metadata_atracciones (
     es_juego_acuatico BOOLEAN,
     tiempo_espera VARCHAR(3000),
     juegos_horarios VARCHAR(255), -- JSON con horarios de juegos
-    juegos_temporada BOOLEAN,
     popularidad INT,
     CONSTRAINT fk_nodo_nombre FOREIGN KEY (nodo_nombre) REFERENCES nodos(nombre)
 );
@@ -29,6 +28,23 @@ CREATE TABLE IF NOT EXISTS clima (
     hay_precipitacion BOOLEAN,
     es_de_dia BOOLEAN,
     temperatura_celsius FLOAT
+);
+
+-- Crear tabla para eventos
+CREATE TABLE IF NOT EXISTS eventos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    fecha_inicio TIMESTAMP NOT NULL,
+    fecha_fin TIMESTAMP NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS eventos_nodos (
+    evento_id INT,
+    nodo_id INT,
+    PRIMARY KEY (evento_id, nodo_id),
+    FOREIGN KEY (evento_id) REFERENCES eventos(id) ON DELETE CASCADE,
+    FOREIGN KEY (nodo_id) REFERENCES nodos(id) ON DELETE CASCADE
 );
 
 ALTER TABLE clima ADD UNIQUE (fecha_observacion);
